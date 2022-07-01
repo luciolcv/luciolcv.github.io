@@ -5,12 +5,20 @@
     <link>https://luciolcv.github.io/publication-type/2/</link>
       <atom:link href="https://luciolcv.github.io/publication-type/2/index.xml" rel="self" type="application/rss+xml" />
     <description>2</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 01 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 15 Jun 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://luciolcv.github.io/media/icon_hu42a0d0f63dee40c53f46907a46e50e31_374480_512x512_fill_lanczos_center_3.png</url>
       <title>2</title>
       <link>https://luciolcv.github.io/publication-type/2/</link>
     </image>
+    
+    <item>
+      <title>Information consumption and boundary spanning in Decentralized Online Social Networks: The case of Mastodon users</title>
+      <link>https://luciolcv.github.io/publication/mastodon-osnem2022/</link>
+      <pubDate>Wed, 15 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://luciolcv.github.io/publication/mastodon-osnem2022/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Understanding the growth of the Fediverse through the lens of Mastodon</title>

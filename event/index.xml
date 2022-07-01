@@ -5,12 +5,20 @@
     <link>https://luciolcv.github.io/event/</link>
       <atom:link href="https://luciolcv.github.io/event/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 02 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://luciolcv.github.io/media/icon_hu42a0d0f63dee40c53f46907a46e50e31_374480_512x512_fill_lanczos_center_3.png</url>
       <title>Recent &amp; Upcoming Talks</title>
       <link>https://luciolcv.github.io/event/</link>
     </image>
+    
+    <item>
+      <title>Discovering the landscape of decentralized online social networks through Mastodon</title>
+      <link>https://luciolcv.github.io/talk/discovering-the-landscape-of-decentralized-online-social-networks-through-mastodon/</link>
+      <pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://luciolcv.github.io/talk/discovering-the-landscape-of-decentralized-online-social-networks-through-mastodon/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Towards Mesoscopic Structural Analysis of the Fediverse of Decentralized Social Networks</title>
