@@ -5,12 +5,20 @@
     <link>https://luciolcv.github.io/publication/</link>
       <atom:link href="https://luciolcv.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Wed, 15 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 07 Jul 2022 00:00:00 +0000</lastBuildDate>
     <image>
       <url>https://luciolcv.github.io/media/icon_hu42a0d0f63dee40c53f46907a46e50e31_374480_512x512_fill_lanczos_center_3.png</url>
       <title>Publications</title>
       <link>https://luciolcv.github.io/publication/</link>
     </image>
+    
+    <item>
+      <title>LawNet-Viz: A Web-based System to Visually Explore Networks of Law Article References</title>
+      <link>https://luciolcv.github.io/publication/lawnet-viz-sigir2022/</link>
+      <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://luciolcv.github.io/publication/lawnet-viz-sigir2022/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Information consumption and boundary spanning in Decentralized Online Social Networks: The case of Mastodon users</title>
