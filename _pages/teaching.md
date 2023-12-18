@@ -2,11 +2,36 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+description: I serve as a teaching assistant for the following courses
 nav: true
-nav_order: 5
+nav_order: 4
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+### Academic Year 2023-2024
+- **Course of Data Mining**\
+Master's Degree in Computer Engineering @DIMES Dept., University of Calabria, Italy
 
-Organize your courses by years, topics, or universities, however you like!
+- **Course of Algorithms and Data Structures**\
+Bachelor's Degree in Computer Engineering @DIMES Dept., University of Calabria, Italy
+
+### Academic Year 2022-2023
+- **Course of Data Mining**\
+Master's Degree in Computer Engineering @DIMES Dept., University of Calabria, Italy
+
+- **Course of Social Networks and Media Analysis**\
+Master's Degree in Computer Engineering @DIMES Dept., University of Calabria, Italy
+
+- **Course of Big Data Analytics**\
+Master's Degree in Computer Engineering for the Internet of Things @DIMES Dept., University of Calabria, Italy
+
+### Academic Year 2021-2022
+
+- **Course of Data Mining**\
+Master's Degree in Computer Engineering @DIMES Dept., University of Calabria, Italy
+
+- **Course of Big Data Analytics**\
+Master's Degree in Computer Engineering for the Internet of Things @DIMES Dept., University of Calabria, Italy
+
+### Academic Year 2020-2021
+- **Course of Networks and Systems in Bioinformatics**\
+Master's Degree in Computer Engineering @DIMES Dept., University of Calabria, Italy

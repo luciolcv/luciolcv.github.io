@@ -1,8 +1,8 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
-    "image": "",
+    "name": "Lucio La Cava",
+    "label": "Ph.D. Student",
+    "image": "prof_pic.jpg",
     "email": "albert@einstein.de",
     "phone": "(912) 123-4567",
     "url": "https://alshedivat.github.io/al-folio/",
