@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-🥳 Paper accepted to [ACM SIGIR 2023](https://sigir.org/sigir2023/)!
+🥳 Paper accepted with [ACM SIGIR 2023](https://sigir.org/sigir2023/)!
