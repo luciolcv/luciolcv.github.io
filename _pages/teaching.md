@@ -15,7 +15,7 @@ Bachelor's Degree in Computer Engineering (Bioengineering) @DIMES Dept., Univers
 Bachelor's Degree in Computer Engineering @DIMES Dept., University of Calabria, Italy
 
 - **[ TA ] Course of Algorithms and Data Structures**\
-Bachelor's Degree in Computer Engineering @DIMES Dept., University of Calabria, Italy
+Bachelor's Degree in Computer Engineering (Bioengineering) @DIMES Dept., University of Calabria, Italy
 
 ### Academic Year 2023-2024
 - **[ TA ] Course of Data Mining**\
