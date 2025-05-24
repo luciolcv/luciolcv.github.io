@@ -7,6 +7,13 @@ nav: true
 nav_order: 4
 ---
 
+### Academic Year 2025-2026
+- **[ T ] Course of Data Mining and Bioimages**\
+Master’s Degree in Medicine and Surgery - Digital Technologies, University of Calabria, Italy
+
+- **[ TA ] Course of Data Mining**\
+Bachelor's Degree in Computer Engineering @DIMES Dept., University of Calabria, Italy
+
 ### Academic Year 2024-2025
 - **[ T ] Course of Algorithms and Data Structures**\
 Bachelor's Degree in Computer Engineering (Bioengineering) @DIMES Dept., University of Calabria, Italy
