@@ -1,0 +1,56 @@
+
+- type: "Talk"
+  title: "Researching Next-Gen Social Media Ecosystems & Scientific Research in the Age of Big Players"
+  venue: "NetPLACE Seminar Series"
+  year: 2025
+  link: "https://www.youtube.com/watch?v=62MJji7W024"
+
+- type: "Talk"
+  title: "Discovering Decentralized Online Social Media through the lens of Mastodon"
+  venue: "Oxford Internet Institute, University of Oxford, UK"
+  year: 2025
+
+- type: "Tutorial"
+  title: "Mining, Modeling, and Analyzing Decentralized Social Media"
+  venue: "ASONAM 2024"
+  location: "University of Calabria, Italy"
+  year: 2024
+
+- type: "Tutorial"
+  title: "The Rise of the Fediverse: Shaping the Future of Social Media Research through Mastodon"
+  venue: "ASONAM 2023"
+  location: "Kuşadası, Türkiye"
+  year: 2023
+
+- type: "Service"
+  title: "Co-organizer — PersonaLLM: Workshop on LLM Persona Modeling"
+  venue: "co-located with NeurIPS 2025"
+  location: "Mexico City, Mexico"
+  year: 2025
+  link: "https://personallmworkshop.github.io/"
+
+- type: "Service"
+  title: "Co-organizer — Workshop on Next Generation and Alternative Social Media (NextGenSocial)"
+  venue: "co-located with ICWSM 2025"
+  location: "Copenhagen, Denmark"
+  year: 2025
+  link: "https://nextgensocial-workshop.github.io/"
+
+- type: "Service"
+  title: "Co-organizer — 1st Intl. Workshop on Decentralizing the Web (DeWeb'24)"
+  venue: "co-located with ICWSM 2024"
+  location: "Buffalo, USA"
+  year: 2024
+  link: "https://deweb-workshop.github.io/"
+
+- type: "Service"
+  title: "Associate Editor for Computational Intelligence, Wiley"
+  year: "2025–present"
+
+- type: "Service"
+  title: "Guest Editor for the Special Issue on Decentralized Online Social Networks, OSNEM, Elsevier"
+  year: "2023"
+
+- type: "Service"
+  title: "PC Member for premier conferences in the fields of Artificial Intelligence (e.g., AAAI, ICLR, NeurIPS), NLP (e.g., EMNLP, ACL), and Web (e.g., TheWebConf), etc."
+  year: "2021-present"

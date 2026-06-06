@@ -1,0 +1,19 @@
+- title: "Mastodonte"
+  description: "A Python toolkit for working with Mastodon data"
+  image: "assets/img/mastodonte.webp"
+  github: "https://github.com/luciolcv/Mastodonte"
+
+- title: "PyBluesky"
+  description: "A Python toolkit for working with Bluesky data"
+  image: "assets/img/pybluesky_logo.webp"
+  github: "https://github.com/luciolcv/PyBluesky"
+
+- title: "LawNet-Viz"
+  description: "A Web-based tool for the modeling, analysis and visualization of Law Reference Networks"
+  image: "assets/img/lawnetviz.webp"
+  demo: "https://youtu.be/yQGe8Q12wQU"
+
+- title: "SONAR"
+  description: "A Web-based tool for multi-modal exploration of Non-Fungible Token Inspiration Networks"
+  image: "assets/img/sonar.webp"
+  demo: "https://youtu.be/kj1UOIXE9no"
