@@ -1,5 +1,5 @@
 // Shared render components and utilities.
-// Loaded as a plain <script> after js/data.js.
+// Loaded as a plain <script> before js/pages.js.
 // All functions are top-level declarations — no module exports.
 
 // ─── Icons ───────────────────────────────────────────────────────────────────
@@ -11,10 +11,7 @@ function strokeIcon(body, size = 15){
 
 function iconSVG(name){
   const map = {
-    about:'<circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/>',
     research:'<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',
-    news:'<path d="M4 5h13a3 3 0 0 1 3 3v9a2 2 0 0 1-2 2H4z"/><path d="M4 19a2 2 0 0 1-2-2v-7h2"/><path d="M8 9h8M8 13h8M8 17h5"/>',
-    pubs:'<path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h11"/>',
     cv:'<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M12 18v-6m-3 3 3 3 3-3"/>',
     scholar:'<path d="M22 10 12 4 2 10l10 6 10-6Z"/><path d="M6 12v5a6 6 0 0 0 12 0v-5"/>',
     email:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
@@ -35,13 +32,6 @@ function esc(s){
     .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// Group an array into { key: [items…] }, preserving each group's insertion order.
-function groupBy(arr, keyFn){
-  const out = {};
-  arr.forEach(x => { const k = keyFn(x); (out[k] = out[k] || []).push(x); });
-  return out;
-}
-
 // ─── Header / Footer / Backdrop ──────────────────────────────────────────────
 
 function mountHeader(profile){
@@ -54,17 +44,17 @@ function mountHeader(profile){
   };
   document.getElementById('site-header').innerHTML = `
     <div class="ll-header-inner">
-      <a href="index.html" class="ll-logo ll-link"><span class="ll-logo-mark">👨🏻‍💻</span><span>${profile.name}</span></a>
+      <a href="index.html" class="ll-logo ll-link"><span class="ll-logo-mark">👨🏻‍💻</span><span>${esc(profile.name)}</span></a>
       <nav class="ll-nav">${nav.map(n=>link('ll-nav-link', n)).join('')}</nav>
       <div class="ll-header-right">
         <button id="ll-hamburger" class="ll-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="ll-mobile-nav">${iconSVG('menu')}</button>
         <button id="ll-theme-toggle" class="ll-theme-toggle" type="button" aria-label="Toggle colour theme"></button>
-        <a class="ll-cta-primary ll-header-cta" href="mailto:${profile.email}">Get in touch <span>→</span></a>
+        <a class="ll-cta-primary ll-header-cta" href="mailto:${esc(profile.email)}">Get in touch <span>→</span></a>
       </div>
     </div>
     <nav id="ll-mobile-nav" class="ll-mobile-nav" aria-label="Mobile">
       ${nav.map(n=>link('ll-mobile-link', n)).join('')}
-      <a class="ll-mobile-link ll-mobile-cta" href="mailto:${profile.email}">Get in touch →</a>
+      <a class="ll-mobile-link ll-mobile-cta" href="mailto:${esc(profile.email)}">Get in touch →</a>
     </nav>`;
 }
 
@@ -77,6 +67,8 @@ function setupThemeToggle(){
     const t = document.documentElement.getAttribute('data-theme') || 'dark';
     btn.innerHTML = iconSVG(t === 'light' ? 'moon' : 'sun');
     btn.setAttribute('aria-label', t === 'light' ? 'Switch to dark theme' : 'Switch to light theme');
+    const meta = document.querySelector('meta[name="theme-color"]');   // mobile browser chrome
+    if(meta) meta.content = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim();
   };
   sync();
   btn.addEventListener('click', ()=>{
@@ -88,10 +80,11 @@ function setupThemeToggle(){
 }
 
 function mountFooter(profile){
-  const updated = new Date().toLocaleDateString('en-US',{month:'long',year:'numeric'});
+  // Last deploy date (GitHub Pages sends Last-Modified for the HTML file).
+  const updated = new Date(document.lastModified).toLocaleDateString('en-US',{month:'long',year:'numeric'});
   document.getElementById('site-footer').innerHTML = `
     <div class="ll-footer-inner">
-      <div class="ll-foot-mono">© ${new Date().getFullYear()} ${profile.name} · DIMES, University of Calabria</div>
+      <div class="ll-foot-mono">© ${new Date().getFullYear()} ${esc(profile.name)} · DIMES, University of Calabria</div>
       <div class="ll-foot-mono"><span class="ll-dot-pulse"></span> Updated ${updated}</div>
     </div>`;
 }
@@ -111,10 +104,10 @@ function mountHero(p){
   if(p.name) set('hero-name', esc(p.name).replace(/ (\S+)$/, ' $1') + '.');
 
   const meta = [];
-  if(p.title) meta.push(`<span style="color:var(--fg-dim)">${esc(p.title)}</span>`);
+  if(p.title) meta.push(`<span class="ll-dim">${esc(p.title)}</span>`);
   meta.push(`<span>${esc(p.affiliation||'')}${p.flag?' '+esc(p.flag):''}</span>`);
-  if(p.orcid) meta.push(`<span>ORCID <a class="ll-link" style="color:var(--fg-dim)" target="_blank" rel="noopener" href="https://orcid.org/${esc(p.orcid)}">${esc(p.orcid)}</a></span>`);
-  set('hero-meta', meta.join('<span style="color:var(--border-strong)">·</span>'));
+  if(p.orcid) meta.push(`<span>ORCID <a class="ll-link ll-dim" target="_blank" rel="noopener" href="https://orcid.org/${esc(p.orcid)}">${esc(p.orcid)}</a></span>`);
+  set('hero-meta', meta.join('<span class="ll-sep">·</span>'));
 
   const cta = document.getElementById('contact-email');
   if(cta && p.email){
@@ -132,37 +125,25 @@ function mountBackdrop(){
 
 // Page chrome: skip-to-content link, scroll-progress bar, back-to-top button.
 function mountChrome(){
-  if(!document.querySelector('.ll-skip')){
-    const skip = document.createElement('a');
-    skip.className = 'll-skip'; skip.href = '#main'; skip.textContent = 'Skip to content';
-    document.body.insertBefore(skip, document.body.firstChild);
-  }
-  let bar = document.getElementById('ll-progress');
-  if(!bar){ bar = document.createElement('div'); bar.id = 'll-progress'; bar.className = 'll-progress'; document.body.appendChild(bar); }
-  let top = document.getElementById('ll-top');
-  if(!top){
-    top = document.createElement('button');
-    top.id = 'll-top'; top.className = 'll-top'; top.type = 'button';
-    top.setAttribute('aria-label', 'Back to top');
-    top.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>';
-    top.addEventListener('click', ()=>window.scrollTo({ top:0, behavior:'smooth' }));
-    document.body.appendChild(top);
-  }
+  document.body.insertAdjacentHTML('afterbegin', '<a class="ll-skip" href="#main">Skip to content</a>');
+  document.body.insertAdjacentHTML('beforeend', '<div class="ll-progress"></div><button class="ll-top" type="button" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg></button>');
+  const bar = document.querySelector('.ll-progress'), top = document.querySelector('.ll-top');
+  top.addEventListener('click', ()=>window.scrollTo({ top:0, behavior:'smooth' }));
   const onScroll = ()=>{
     const h = document.documentElement;
     const max = h.scrollHeight - h.clientHeight;
-    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+    bar.style.transform = `scaleX(${max > 0 ? h.scrollTop / max : 0})`;   // transform, not width: no layout per scroll frame
     top.classList.toggle('show', h.scrollTop > 600);
   };
   window.addEventListener('scroll', onScroll, { passive:true });
   onScroll();
 }
 
-// ─── Reveal / Active-section / Markdown / Section header ─────────────────────
+// ─── Reveal / Active-section / Markdown ──────────────────────────────────────
 
 function revealObserve(){
   const els = document.querySelectorAll('[data-reveal]');
-  if (typeof IntersectionObserver === 'undefined' || matchMedia('(prefers-reduced-motion:reduce)').matches){
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches){
     els.forEach(e=>e.classList.add('is-shown')); return;
   }
   const io = new IntersectionObserver((ents)=>ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-shown'); io.unobserve(e.target);}}),{threshold:.12, rootMargin:'0px 0px -8% 0px'});
@@ -174,7 +155,6 @@ function revealObserve(){
 function trackActiveSection(map){
   const links = document.querySelectorAll('.ll-nav-link');
   const els = Object.keys(map).map(id=>document.getElementById(id)).filter(Boolean);
-  if(!els.length || typeof IntersectionObserver==='undefined') return;
   const io = new IntersectionObserver((ents)=>{
     const vis = ents.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);
     if(vis[0]){ const nav=map[vis[0].target.id]; links.forEach(l=>l.classList.toggle('is-active', l.dataset.nav===nav)); }
@@ -183,69 +163,40 @@ function trackActiveSection(map){
 }
 
 function parseMarkdownLinks(text){
-  if(!text) return '';
-  return String(text)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a class="ll-link" style="color:var(--iris)" target="_blank" rel="noopener" href="$2">$1</a>')
+  return esc(text)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a class="ll-link" target="_blank" rel="noopener" href="$2">$1</a>')
     .replace(/\n/g,'<br>');
 }
 
-function sectionHeaderHTML({num,eyebrow,title,accent,right}){
-  return `<div class="ll-section-head">
-    <div class="ll-section-head-l">
-      <div class="ll-section-num">${num}</div>
-      <div><div class="ll-section-eyebrow">${eyebrow}</div>
-      <div class="ll-section-title">${title}${accent?`<span class="ll-accent">${accent}</span>`:''}</div></div>
-    </div>${right||''}</div>`;
-}
+// ─── News category ───────────────────────────────────────────────────────────
+// Returns { icon: <inline SVG string>, label: string }. An explicit `category` wins;
+// otherwise the first keyword rule that matches the text decides; default is Update.
 
-// ─── News category (ported from js/main.js getNewsCategory) ──────────────────
-// Returns { icon: <inline SVG string>, label: string }
-// icon uses stroke-width:1.7, 14px, currentColor — color is uniform via .ll-news-ic CSS.
+const NEWS_ICONS = {
+  Publication: '<path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h11"/>',
+  Talk: '<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>',
+  Award: '<path d="M8 21h8M12 17v4"/><path d="M17 3H7v7a5 5 0 0 0 10 0V3z"/><path d="M7 6H4a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4h1"/><path d="M17 6h3a1 1 0 0 1 1 1v1a4 4 0 0 0-4 4h-1"/>',
+  Project: '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>',
+  Travel: '<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 21 4s-2 0-3.5 1.5L14 9 5.8 7.2a.5.5 0 0 0-.5.5l-.1.5L9 12l-2 3H3l-1 1 3 2 2 3 1-1v-4l3-2 3.5 3.8.5-.1a.5.5 0 0 0 .3-.5z"/>',
+  Update: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+};
+
+const NEWS_RULES = [
+  ['Publication', /accept|publish|paper/],
+  ['Talk',        /talk|present|conference|keynote/],
+  ['Award',       /award|honor|grant|prize/],
+  ['Project',     /release|launch|code/],
+  ['Travel',      /visit|travel/],
+];
 
 function newsCategory(item){
-  // Inline SVG builders for each category (14px, stroke-width:1.7, currentColor)
-  const svg = (body) => strokeIcon(body, 14);
-
-  const icons = {
-    // Publication — document / scroll
-    publication: svg('<path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3z"/><path d="M4 17a3 3 0 0 1 3-3h11"/>'),
-    // Talk — speech bubble
-    talk: svg('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'),
-    // Award — trophy
-    award: svg('<path d="M8 21h8M12 17v4"/><path d="M17 3H7v7a5 5 0 0 0 10 0V3z"/><path d="M7 6H4a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4h1"/><path d="M17 6h3a1 1 0 0 1 1 1v1a4 4 0 0 0-4 4h-1"/>'),
-    // Project — rocket
-    project: svg('<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>'),
-    // Travel — airplane
-    travel: svg('<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21 4 21 4s-2 0-3.5 1.5L14 9 5.8 7.2a.5.5 0 0 0-.5.5l-.1.5L9 12l-2 3H3l-1 1 3 2 2 3 1-1v-4l3-2 3.5 3.8.5-.1a.5.5 0 0 0 .3-.5z"/>'),
-    // Update — star
-    update: svg('<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>'),
-  };
-
-  // Manual override via item.category
-  if(item.category){
-    const cat = item.category.toLowerCase();
-    if(cat === 'publication') return { icon: icons.publication, label: 'Publication' };
-    if(cat === 'talk')        return { icon: icons.talk,        label: 'Talk' };
-    if(cat === 'award')       return { icon: icons.award,       label: 'Award' };
-    if(cat === 'project')     return { icon: icons.project,     label: 'Project' };
-    if(cat === 'travel')      return { icon: icons.travel,      label: 'Travel' };
-    if(cat === 'update')      return { icon: icons.update,      label: 'Update' };
+  const cat = String(item.category || '').toLowerCase();
+  let label = Object.keys(NEWS_ICONS).find(k => k.toLowerCase() === cat);
+  if(!label){
+    const text = (item.content || '').toLowerCase();
+    label = (NEWS_RULES.find(([, re]) => re.test(text)) || ['Update'])[0];
   }
-
-  // Auto-detect from content text (mirrors main.js heuristics)
-  const lower = (item.content || '').toLowerCase();
-  if(lower.includes('accept') || lower.includes('publish') || lower.includes('paper'))
-    return { icon: icons.publication, label: 'Publication' };
-  if(lower.includes('talk') || lower.includes('present') || lower.includes('conference') || lower.includes('keynote'))
-    return { icon: icons.talk, label: 'Talk' };
-  if(lower.includes('award') || lower.includes('honor') || lower.includes('grant') || lower.includes('prize'))
-    return { icon: icons.award, label: 'Award' };
-  if(lower.includes('release') || lower.includes('launch') || lower.includes('code'))
-    return { icon: icons.project, label: 'Project' };
-  if(lower.includes('visit') || lower.includes('travel'))
-    return { icon: icons.travel, label: 'Travel' };
-  return { icon: icons.update, label: 'Update' };
+  return { label, icon: strokeIcon(NEWS_ICONS[label], 14) };
 }
 
 // ─── News rows ────────────────────────────────────────────────────────────────
@@ -275,136 +226,142 @@ function newsRowsHTML(news, limit){
 
 // ─── Publications ─────────────────────────────────────────────────────────────
 
-// Resolve a publication's citation key. Falls back to a title-derived slug so that
-// items missing `key` still get a unique, stable data-key (no toggle/copy collisions).
-function pubKey(p){
-  if(p.key) return p.key;
-  const slug = String(p.title||'untitled').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,48);
-  return 'pub-' + (slug || 'untitled');
+// `doi` may be bare or a full https://doi.org/ URL.
+const bareDoi = p => String(p.doi).replace(/^https?:\/\/doi\.org\//,'');
+
+// "La Cava, Lucio and Tagarelli, Andrea" (BibTeX order) → "Lucio La Cava, Andrea Tagarelli".
+function formatAuthors(s){
+  return String(s||'').split(/\s+and\s+/).map(a => a.trim().replace(/^([^,]+),\s*(.+)$/, '$2 $1')).join(', ');
 }
 
+// Entry type is guessed from the venue (override with `bibtype` in YAML):
+// arXiv → @misc, proceedings / findings / workshops → @inproceedings, else → @article.
 function buildBibtex(p){
-  return `@article{${pubKey(p)},\n  title={${p.title}},\n  author={${p.authors||''}},\n  journal={${p.venue||'Preprint'}},\n  year={${p.year||''}}\n}`;
+  const venue = p.venue || 'Preprint';
+  const type = p.bibtype || (/arxiv/i.test(venue) ? 'misc'
+    : /proceedings|conference|findings|workshop|symposium|ijcai/i.test(venue) ? 'inproceedings' : 'article');
+  const field = { misc:'howpublished', inproceedings:'booktitle' }[type] || 'journal';
+  const doi = p.doi ? `,\n  doi={${bareDoi(p)}}` : '';
+  return `@${type}{${p.key},\n  title={${p.title}},\n  author={${p.authors||''}},\n  ${field}={${venue}},\n  year={${p.year||''}}${doi}\n}`;
 }
 
 function pubCardHTML(p){
-  const key = esc(pubKey(p));
+  const toggle = (act, label) => `<button type="button" class="ll-link" data-pub-act="${act}" aria-expanded="false">${label}</button>`;
+  const ext = (href, label) => `<a class="ll-link" target="_blank" rel="noopener" href="${esc(href)}">${label}</a>`;
   const links = [
-    p.pdf&&`<a class="ll-link" target="_blank" rel="noopener" href="${esc(p.pdf)}">PDF</a>`,
-    p.arxiv&&`<a class="ll-link" target="_blank" rel="noopener" href="${esc(p.arxiv)}">arXiv</a>`,
-    p.doi&&`<a class="ll-link" target="_blank" rel="noopener" href="https://doi.org/${esc(String(p.doi).replace(/^https?:\/\/doi\.org\//,''))}">DOI</a>`,
-    p.code&&`<a class="ll-link" target="_blank" rel="noopener" href="${esc(p.code)}">Code</a>`,
-    `<a class="ll-link ll-bibtex-toggle" href="#" data-key="${key}">BibTeX</a>`,
+    p.abstract && toggle('abstract', 'Abstract'),
+    p.pdf && ext(p.pdf, 'PDF'),
+    p.arxiv && ext(p.arxiv, 'arXiv'),
+    p.doi && ext(`https://doi.org/${bareDoi(p)}`, 'DOI'),
+    p.code && ext(p.code, 'Code'),
+    toggle('bibtex', 'BibTeX'),
   ].filter(Boolean).join('');
   // Escape first, then bold the author name (the matched name has no HTML metacharacters).
-  const authors = esc(p.authors||'').replace(/La Cava, Lucio|Lucio La Cava/g, m=>`<strong>${m}</strong>`);
+  const authors = esc(formatAuthors(p.authors)).replace(/Lucio La Cava/g, '<strong>$&</strong>');
   return `<div class="ll-pub">
     <div class="ll-pub-rail"></div>
-    <div class="ll-pub-top"><div class="ll-pub-title">${esc(p.title)}</div>${p.tag?`<div class="ll-pub-tag">${esc(p.tag)}</div>`:''}</div>
+    <div class="ll-pub-top"><h3 class="ll-pub-title">${esc(p.title)}</h3>${p.tag?`<div class="ll-pub-tag">${esc(p.tag)}</div>`:''}</div>
+    <div class="ll-pub-authors">${authors}</div>
+    <div class="ll-pub-meta"><span class="ll-pub-venue">${esc(p.venue||'')}</span><span class="ll-pub-links">${links}</span></div>
     ${p.abstract?`<div class="ll-pub-abstract"><div class="ll-pub-abstract-inner"><p>${esc(p.abstract)}</p></div></div>`:''}
-    <div class="ll-pub-meta"><span>${authors}</span><span class="ll-sep">·</span><span class="ll-pub-venue">${esc(p.venue||'')}</span><span class="ll-pub-links">${links}</span></div>
-    <pre class="ll-bibtex" data-key="${key}" hidden>${esc(buildBibtex(p))}</pre>
+    <div class="ll-bibtex"><button type="button" class="ll-bibtex-copy" data-pub-act="copy">Copy</button><pre>${esc(buildBibtex(p))}</pre></div>
   </div>`;
 }
 
 function pubGroupsHTML(pubs, opts={}){
   let list = [...pubs];
   if(opts.selectedOnly) list = list.filter(p=>p.selected);
-  const byYear = groupBy(list, p=>p.year);
+  const byYear = Object.groupBy(list, p=>p.year);
   const years = Object.keys(byYear).sort((a,b)=>Number(b)-Number(a));
   return years.map(y=>`<div class="ll-pub-group" data-reveal>
-    <div class="ll-pub-year-col"><div class="ll-pub-year">${y}</div>${opts.hideCount?'':`<div class="ll-pub-count">${byYear[y].length} paper${byYear[y].length===1?'':'s'}</div>`}</div>
+    <div class="ll-pub-year-col"><h2 class="ll-pub-year">${y}</h2>${opts.hideCount?'':`<div class="ll-pub-count">${byYear[y].length} paper${byYear[y].length===1?'':'s'}</div>`}</div>
     <div class="ll-pub-list">${byYear[y].map(pubCardHTML).join('')}</div></div>`).join('');
 }
 
-function attachBibtexToggles(){
-  // `:not([data-bound])` so re-renders (e.g. publication filtering) never double-bind.
-  document.querySelectorAll('.ll-bibtex-toggle:not([data-bound])').forEach(a=>{
-    a.dataset.bound = '1';
-    a.addEventListener('click',ev=>{
-      ev.preventDefault();
-      const pre = document.querySelector(`.ll-bibtex[data-key="${a.dataset.key}"]`);
-      if(pre){
-        pre.hidden = !pre.hidden;
-        if(!pre.hidden && navigator.clipboard){
-          navigator.clipboard.writeText(pre.textContent).then(()=>showToast('BibTeX copied to clipboard')).catch(()=>{});
-        }
-      }
-    });
+// Publication card buttons: Abstract / BibTeX toggle a `show-*` class on the card; Copy copies
+// the BibTeX. One delegated listener, so it keeps working across filter re-renders.
+function setupPubActions(){
+  document.addEventListener('click', ev=>{
+    const btn = ev.target.closest('[data-pub-act]'); if(!btn) return;
+    const card = btn.closest('.ll-pub'), act = btn.dataset.pubAct;
+    if(act === 'copy'){
+      const text = card.querySelector('.ll-bibtex pre').textContent;
+      (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject())
+        .then(()=>showToast('BibTeX copied to clipboard'), ()=>showToast('Copy failed — select the text instead'));
+      return;
+    }
+    btn.setAttribute('aria-expanded', card.classList.toggle('show-' + act));
   });
 }
 
 // Lightweight toast notification (auto-created, auto-dismissed).
 function showToast(msg){
   let t = document.getElementById('ll-toast');
-  if(!t){ t = document.createElement('div'); t.id = 'll-toast'; t.className = 'll-toast'; document.body.appendChild(t); }
+  if(!t){ t = document.createElement('div'); t.id = 'll-toast'; t.className = 'll-toast'; t.setAttribute('role','status'); document.body.appendChild(t); }
   t.textContent = msg;
   t.classList.add('show');
   clearTimeout(showToast._t);
   showToast._t = setTimeout(()=>t.classList.remove('show'), 1900);
 }
 
-// ─── Hero icon strip / Research cards / Projects / Teaching / Social chips ───
+// ─── Hero actions / Research cards / Projects / Teaching / Social chips ──────
 
+// Actions only — page navigation already lives in the header.
 function heroIconStripHTML(profile){
   const items = [
-    {label:'About', href:'index.html#hero', icon:'about'},
-    {label:'Research', href:'index.html#research', icon:'research'},
-    {label:'News', href:'news.html', icon:'news'},
-    {label:'Publications', href:'publications.html', icon:'pubs'},
     {label:'CV', href:profile.cv, icon:'cv', accent:true},
     {label:'Scholar', href:profile.scholar, icon:'scholar', external:true},
     {label:'Email', href:`mailto:${profile.email}`, icon:'email'},
   ];
-  return items.map(it=>`<a class="ll-icon-link" href="${it.href}" ${it.accent?'data-accent="true"':''} ${it.external?'target="_blank" rel="noopener"':''}>${iconSVG(it.icon)}<span>${it.label}</span></a>`).join('');
+  return items.map(it=>`<a class="ll-icon-link" href="${esc(it.href)}" ${it.accent?'data-accent="true"':''} ${it.external?'target="_blank" rel="noopener"':''}>${iconSVG(it.icon)}<span>${it.label}</span></a>`).join('');
 }
 
 function researchCardsHTML(research){
   return research.map((r,i)=>`<div data-reveal class="ll-research" style="transition-delay:${i*90}ms">
     <div class="ll-research-top"><div class="ll-research-ic">${iconSVG(r.icon)}</div><div class="ll-research-num">/${String(i+1).padStart(2,'0')}</div></div>
-    <div class="ll-research-title">${r.title}</div><div class="ll-research-desc">${r.description}</div></div>`).join('');
+    <div class="ll-research-title">${esc(r.title)}</div><div class="ll-research-desc">${esc(r.description)}</div></div>`).join('');
 }
 
 function projectsHTML(projects){
-  return projects.map(p=>`<div class="ll-research ll-project">
-    ${p.image?`<div class="ll-project-img"><img src="${p.image}" alt="${p.title}" loading="lazy" decoding="async"></div>`:''}
-    <div class="ll-project-body"><div class="ll-pub-top"><div class="ll-research-title">${p.title}</div>
-    <div class="ll-project-links">${p.github?`<a class="ll-link" target="_blank" rel="noopener" href="${p.github}">GitHub ↗</a>`:''}${p.demo?`<a class="ll-link" target="_blank" rel="noopener" href="${p.demo}">Demo ↗</a>`:''}</div></div>
-    <div class="ll-research-desc">${p.description||''}</div></div></div>`).join('');
+  return projects.map((p,i)=>`<div class="ll-research ll-project">
+    ${p.image?`<div class="ll-project-img"><img src="${esc(p.image)}" alt="${esc(p.title)}" loading="${i<2?'eager':'lazy'}" decoding="async"></div>`:''}
+    <div class="ll-project-body"><div class="ll-pub-top"><div class="ll-research-title">${esc(p.title)}</div>
+    <div class="ll-project-links">${p.github?`<a class="ll-link" target="_blank" rel="noopener" href="${esc(p.github)}">GitHub ↗</a>`:''}${p.demo?`<a class="ll-link" target="_blank" rel="noopener" href="${esc(p.demo)}">Demo ↗</a>`:''}</div></div>
+    <div class="ll-research-desc">${esc(p.description)}</div></div></div>`).join('');
 }
 
 function teachingHTML(teaching){
-  const byYear = groupBy(teaching, t=>t.academicYear);
+  const byYear = Object.groupBy(teaching, t=>t.academicYear);
   const years=Object.keys(byYear).sort().reverse();
-  return years.map(y=>`<div class="ll-teach-group" data-reveal><div class="ll-teach-year">Academic Year ${y}</div>
+  return years.map(y=>`<div class="ll-teach-group" data-reveal><h2 class="ll-teach-year">Academic Year ${esc(y)}</h2>
     <div class="ll-teach-list">${byYear[y].map(t=>{const role=t.category==='Teaching'?'T':'TA';
-      const title = t.link ? `<a class="ll-link" target="_blank" rel="noopener" href="${t.link}">${t.title}</a>` : t.title;
+      const title = t.link ? `<a class="ll-link" target="_blank" rel="noopener" href="${esc(t.link)}">${esc(t.title)}</a>` : esc(t.title);
       return `<div class="ll-teach-row"><span class="ll-teach-role" data-role="${role}">${role}</span>
-      <div><div class="ll-teach-title">${title} <span class="ll-teach-lvl">${t.level||''}</span></div>
-      <div class="ll-research-desc">${t.degree}${t.department?` @${t.department}, `:' '}${t.institution}</div></div></div>`;}).join('')}</div></div>`).join('');
+      <div><div class="ll-teach-title">${title} <span class="ll-teach-lvl">${esc(t.level)}</span></div>
+      <div class="ll-research-desc">${esc(t.degree)}${t.department?` @${esc(t.department)}, `:' '}${esc(t.institution)}</div></div></div>`;}).join('')}</div></div>`).join('');
 }
 
 function talksHTML(talks){
   const order = ['Talk','Tutorial','Course','Service'];
   const labels = { Talk:'Invited Talks', Tutorial:'Tutorials', Course:'Courses', Service:'Academic Service' };
-  const byType = groupBy(talks, t=>t.type);
+  const byType = Object.groupBy(talks, t=>t.type);
   const types = Object.keys(byType).sort((a,b)=>{
     const i=order.indexOf(a), j=order.indexOf(b);
     return (i<0?99:i)-(j<0?99:j);
   });
   return types.map(ty=>`<div class="ll-teach-group" data-reveal>
-    <div class="ll-teach-year">${labels[ty]||ty}</div>
+    <h2 class="ll-teach-year">${esc(labels[ty]||ty)}</h2>
     <div class="ll-teach-list">${byType[ty]
       .slice().sort((a,b)=>String(b.year).localeCompare(String(a.year)))
       .map(t=>{
-        const title = t.link ? `<a class="ll-link" target="_blank" rel="noopener" href="${t.link}">${t.title}</a>` : t.title;
+        const title = t.link ? `<a class="ll-link" target="_blank" rel="noopener" href="${esc(t.link)}">${esc(t.title)}</a>` : esc(t.title);
         const sub = [t.venue, t.location].filter(Boolean).join(' · ');
-        return `<div class="ll-teach-row"><span class="ll-teach-role">${t.year||''}</span>
+        return `<div class="ll-teach-row"><span class="ll-teach-role">${esc(t.year)}</span>
         <div><div class="ll-teach-title">${title}</div>
-        ${sub?`<div class="ll-research-desc">${sub}</div>`:''}</div></div>`;
+        ${sub?`<div class="ll-research-desc">${esc(sub)}</div>`:''}</div></div>`;
       }).join('')}</div></div>`).join('');
 }
 
 function socialChipsHTML(links){
-  return links.map(s=>`<a class="ll-chip" target="_blank" ${s.rel?`rel="${s.rel} noopener"`:'rel="noopener"'} href="${s.href}">${s.label}<span>↗</span></a>`).join('');
+  return links.map(s=>`<a class="ll-chip" target="_blank" rel="${s.rel?esc(s.rel)+' ':''}noopener" href="${esc(s.href)}">${esc(s.label)}<span>↗</span></a>`).join('');
 }

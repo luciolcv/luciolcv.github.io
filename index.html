@@ -6,10 +6,20 @@
 <title>Lucio La Cava — NLP Researcher</title>
 <meta name="description" content="Lucio La Cava, Ph.D. — Assistant Professor at DIMES, University of Calabria. NLP, machine-generated text detection, LLM interpretability, representation engineering.">
 <link rel="canonical" href="https://luciolacava.me/">
+<meta name="theme-color" content="#0d0f18">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lucio La Cava — NLP Researcher">
+<meta property="og:description" content="Lucio La Cava, Ph.D. — Assistant Professor at DIMES, University of Calabria. NLP, machine-generated text detection, LLM interpretability, representation engineering.">
+<meta property="og:url" content="https://luciolacava.me/">
+<meta property="og:image" content="https://luciolacava.me/assets/img/og.jpg">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨🏻‍💻</text></svg>">
 <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="preconnect" href="https://cloud.umami.is">
-<link rel="preload" href="assets/fonts/space-grotesk-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="content/profile.yaml" as="fetch" crossorigin>
+<link rel="preload" href="content/news.yaml" as="fetch" crossorigin>
+<link rel="preload" href="content/publications.yaml" as="fetch" crossorigin>
 <link rel="stylesheet" href="css/site.css">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="3e6ec900-2332-4a89-b7db-e7fb2f5328d5"></script>
 <script defer src="js/vendor/js-yaml.min.js"></script>
@@ -22,7 +32,7 @@
     <!-- ── HERO ── -->
     <!-- Hero text below is the no-JS / crawler fallback; mountHero() overwrites it from
          content/profile.yaml at runtime, so profile.yaml is the single source of truth. -->
-    <section id="hero" class="ll-hero">
+    <section id="hero" class="ll-section">
       <div class="ll-eyebrow" id="hero-eyebrow"><span class="ll-dot-pulse"></span> Assistant Professor · UniCal DIMES</div>
 
       <div class="ll-hero-name-row">
@@ -31,16 +41,16 @@
       </div>
 
       <div class="ll-meta" id="hero-meta">
-        <span style="color:var(--fg-dim)">Ph.D.</span>
-        <span style="color:var(--border-strong)">·</span>
+        <span class="ll-dim">Ph.D.</span>
+        <span class="ll-sep">·</span>
         <span>DIMES Department, University of Calabria 🇮🇹</span>
-        <span style="color:var(--border-strong)">·</span>
-        <span>ORCID <span style="color:var(--fg-dim)">0000-0003-3324-0580</span></span>
+        <span class="ll-sep">·</span>
+        <span>ORCID <span class="ll-dim">0000-0003-3324-0580</span></span>
       </div>
 
       <div id="hero-icons" class="ll-icon-strip"></div>
 
-      <div id="streaming-bio"></div>
+      <div id="streaming-bio" class="ll-bio"></div>
     </section>
 
     <!-- ── RESEARCH ── -->
@@ -50,7 +60,7 @@
           <div class="ll-section-num">01 / 04</div>
           <div>
             <div class="ll-section-eyebrow">Research</div>
-            <div class="ll-section-title">Research <span class="ll-accent">interests.</span></div>
+            <h2 class="ll-section-title">Research <span class="ll-accent">interests.</span></h2>
           </div>
         </div>
       </div>
@@ -58,31 +68,31 @@
     </section>
 
     <!-- ── NEWS ── -->
-    <section id="news" class="ll-section ll-section--news">
+    <section id="news" class="ll-section">
       <div class="ll-section-head">
         <div class="ll-section-head-l">
           <div class="ll-section-num">02 / 04</div>
           <div>
             <div class="ll-section-eyebrow">Updates</div>
-            <div class="ll-section-title">Latest <span class="ll-accent">news.</span></div>
+            <h2 class="ll-section-title">Latest <span class="ll-accent">news.</span></h2>
           </div>
         </div>
-        <a class="ll-link" href="news.html" style="color:var(--fg-dim)">View all →</a>
+        <a class="ll-link ll-dim" href="news.html">View all →</a>
       </div>
       <div id="news-container"></div>
     </section>
 
     <!-- ── PUBLICATIONS ── -->
-    <section id="pubs" class="ll-section ll-section--pubs">
+    <section id="pubs" class="ll-section">
       <div class="ll-section-head">
         <div class="ll-section-head-l">
           <div class="ll-section-num">03 / 04</div>
           <div>
             <div class="ll-section-eyebrow">Recent work</div>
-            <div class="ll-section-title">Selected <span class="ll-accent">publications.</span></div>
+            <h2 class="ll-section-title">Selected <span class="ll-accent">publications.</span></h2>
           </div>
         </div>
-        <div style="display:flex;gap:8px">
+        <div class="ll-section-actions">
           <a class="ll-chip" target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=9DI3nP4AAAAJ">Google Scholar ↗</a>
           <a class="ll-chip" href="publications.html">Full list →</a>
         </div>
@@ -91,28 +101,27 @@
     </section>
 
     <!-- ── CONTACT ── -->
-    <section id="contact" class="ll-section ll-section--contact">
+    <section id="contact" class="ll-section">
       <div class="ll-section-head">
         <div class="ll-section-head-l">
           <div class="ll-section-num">04 / 04</div>
           <div>
             <div class="ll-section-eyebrow">Contact</div>
-            <div class="ll-section-title">Let's <span class="ll-accent">connect.</span></div>
+            <h2 class="ll-section-title">Let's <span class="ll-accent">connect.</span></h2>
           </div>
         </div>
       </div>
 
       <div class="ll-contact">
         <div class="ll-contact-glow"></div>
-        <div style="position:relative">
-          <div class="ll-contact-title">Open to <span class="ll-accent">collaboration</span>,<br><span style="color:var(--fg-dim)"> and good conversation.</span></div>
-          <a id="contact-email" class="ll-cta-primary" href="mailto:lucio.lacava@dimes.unical.it" style="display:inline-flex;align-items:center;gap:12px;padding:14px 20px;border-radius:99px;font-family:var(--font-mono);font-size:16px;text-decoration:none">
-            <span style="width:8px;height:8px;border-radius:99px;background:var(--iris)"></span>
+        <div>
+          <div class="ll-contact-title">Open to <span class="ll-accent">collaboration</span>,<br><span class="ll-dim"> and good conversation.</span></div>
+          <a id="contact-email" class="ll-cta-primary ll-contact-cta" href="mailto:lucio.lacava@dimes.unical.it">
             <span class="ll-contact-email-text">lucio.lacava@dimes.unical.it</span>
-            <span style="font-size:16px">↗</span>
+            <span>↗</span>
           </a>
         </div>
-        <div style="position:relative">
+        <div>
           <div class="ll-contact-aside-label">Find me elsewhere</div>
           <div id="social-chips" class="ll-contact-socials"></div>
         </div>
@@ -122,7 +131,6 @@
 
   <footer id="site-footer" class="ll-footer"></footer>
 
-  <script src="js/data.js"></script>
   <script src="js/components.js"></script>
   <script src="js/streaming-bio.js"></script>
   <script src="js/pages.js"></script>

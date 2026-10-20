@@ -5,171 +5,64 @@
    Research / Projects → Teaching → Contact → Responsive
    ============================================================ */
 
-/* ── SELF-HOSTED FONTS (weights 400/500/600, latin + latin-ext) ── */
+/* ── SELF-HOSTED FONTS (variable: one file covers weights 400–600; latin + latin-ext) ── */
 @font-face {
   font-family: 'Geist';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 600;
   font-display: swap;
-  src: url('../assets/fonts/geist-400-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: 'Geist';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../assets/fonts/geist-400-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Geist';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/geist-500-latin-ext.woff2') format('woff2');
+  src: url('../assets/fonts/geist-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
   font-family: 'Geist';
   font-style: normal;
-  font-weight: 500;
+  font-weight: 400 600;
   font-display: swap;
-  src: url('../assets/fonts/geist-500-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Geist';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/fonts/geist-600-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: 'Geist';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/fonts/geist-600-latin.woff2') format('woff2');
+  src: url('../assets/fonts/geist-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
   font-family: 'JetBrains Mono';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 600;
   font-display: swap;
-  src: url('../assets/fonts/jetbrains-mono-400-latin-ext.woff2') format('woff2');
+  src: url('../assets/fonts/jetbrains-mono-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
   font-family: 'JetBrains Mono';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 600;
   font-display: swap;
-  src: url('../assets/fonts/jetbrains-mono-400-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/jetbrains-mono-500-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/jetbrains-mono-500-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/fonts/jetbrains-mono-600-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: 'JetBrains Mono';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/fonts/jetbrains-mono-600-latin.woff2') format('woff2');
+  src: url('../assets/fonts/jetbrains-mono-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
   font-family: 'Space Grotesk';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 600;
   font-display: swap;
-  src: url('../assets/fonts/space-grotesk-400-latin-ext.woff2') format('woff2');
+  src: url('../assets/fonts/space-grotesk-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
   font-family: 'Space Grotesk';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 600;
   font-display: swap;
-  src: url('../assets/fonts/space-grotesk-400-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/space-grotesk-500-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/space-grotesk-500-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/fonts/space-grotesk-600-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('../assets/fonts/space-grotesk-600-latin.woff2') format('woff2');
+  src: url('../assets/fonts/space-grotesk-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* ── DESIGN TOKENS ──────────────────────────────────────── */
 :root {
+  color-scheme: dark;
   --bg:#0d0f18;
   --bg2:#11131e;
   --surface:#181b29;
@@ -186,6 +79,7 @@
   --iris-soft:rgba(106,161,255,.13);
   --iris-strong:#9bc1ff;
   --maxw:1240px;
+  --gutter:56px; /* page side padding; narrowed in the media queries */
   --font-display:"Space Grotesk",sans-serif;
   --font-body:"Geist","IBM Plex Sans",-apple-system,system-ui,sans-serif;
   --font-mono:"JetBrains Mono",monospace;
@@ -193,6 +87,7 @@
 
 /* ── LIGHT THEME (html[data-theme="light"]) ──────────────── */
 html[data-theme="light"] {
+  color-scheme: light;
   --bg:#f7f8fc;
   --bg2:#eef1f7;
   --surface:#ffffff;
@@ -209,9 +104,6 @@ html[data-theme="light"] {
   --iris-soft:rgba(47,106,224,0.10);
   --iris-strong:#214fb0;
 }
-/* A few values are hardcoded for the dark base — restate them for light. */
-html[data-theme="light"] .ll-header { background: rgba(255,255,255,0.72); }
-html[data-theme="light"] ::selection { background: rgba(47,106,224,0.18); color: var(--fg); }
 
 /* ── BASE / RESET ───────────────────────────────────────── */
 * {
@@ -227,6 +119,11 @@ html {
   html {
     scroll-behavior: auto;
   }
+
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 html,
@@ -234,6 +131,12 @@ body {
   margin: 0;
   padding: 0;
   background: var(--bg);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
 }
 
 body {
@@ -244,10 +147,6 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
-}
-
-section[id] {
-  scroll-margin-top: 90px;
 }
 
 a,
@@ -262,26 +161,8 @@ button {
 }
 
 ::selection {
-  background: rgba(179, 232, 94, 0.25);
-  color: #fff;
-}
-
-*::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-*::-webkit-scrollbar-track {
-  background: var(--bg);
-}
-
-*::-webkit-scrollbar-thumb {
-  background: var(--border);
-  border-radius: 99px;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: var(--border-strong);
+  background: color-mix(in srgb, var(--iris) 30%, transparent);
+  color: var(--fg);
 }
 
 /* ── KEYFRAMES ──────────────────────────────────────────── */
@@ -306,9 +187,15 @@ button {
 }
 
 /* ── REVEAL HELPER ─────────────────────────────────────── */
+/* Hidden until scrolled into view, only when JS runs: without it the (prerendered) content just shows. */
+@media (scripting: enabled) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
 [data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
   transition: opacity .7s cubic-bezier(.22, .7, .3, 1),
               transform .7s cubic-bezier(.22, .7, .3, 1);
 }
@@ -336,7 +223,6 @@ button {
   height: 700px;
   border-radius: 50%;
   background: radial-gradient(ellipse, rgba(106, 161, 255, 0.13), transparent 65%);
-  filter: blur(60px);
   animation: drift 22s ease-in-out infinite;
 }
 
@@ -349,7 +235,6 @@ button {
   height: 600px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(237, 140, 112, 0.11), transparent 60%);
-  filter: blur(50px);
   animation: drift2 26s ease-in-out infinite;
 }
 
@@ -362,7 +247,6 @@ button {
   height: 700px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(106, 161, 255, 0.08), transparent 60%);
-  filter: blur(60px);
   animation: drift 30s ease-in-out infinite reverse;
 }
 
@@ -389,8 +273,7 @@ button {
 }
 
 /* ── INTERACTIVE / HOVER UTILITY CLASSES ────────────────── */
-.ll-link,
-.ll-link:visited {
+.ll-link {
   color: var(--fg);
   text-decoration: none;
   transition: color .15s;
@@ -400,20 +283,44 @@ button {
   color: var(--iris);
 }
 
-.ll-chip,
-.ll-chip:visited {
+/* Secondary text and links (links still turn iris on hover) */
+.ll-dim {
   color: var(--fg-dim);
-  transition: border-color .2s, background .2s, transform .2s;
+}
+
+.ll-sep {
+  color: var(--border-strong);
+}
+
+/* Pill link (section-head actions, contact socials); the ↗ span sits at the far end */
+.ll-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  color: var(--fg-dim);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: border-color .2s, background .2s, color .2s, transform .2s;
+}
+
+.ll-chip span {
+  color: var(--muted);
 }
 
 .ll-chip:hover {
+  color: var(--fg);
   border-color: var(--border-strong);
   background: var(--surface);
   transform: translateY(-1px);
 }
 
-.ll-cta-primary,
-.ll-cta-primary:visited {
+.ll-cta-primary {
   background: var(--fg);
   color: var(--bg);
   transition: transform .15s, box-shadow .15s;
@@ -421,17 +328,16 @@ button {
 
 .ll-cta-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 32px -10px rgba(106, 161, 255, 0.27);
+  box-shadow: 0 12px 32px -10px color-mix(in srgb, var(--iris) 27%, transparent);
 }
 
 /* Icon strip links */
-.ll-icon-link,
-.ll-icon-link:visited {
+.ll-icon-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 7px;
-  padding: 11px 12px;
+  padding: 11px 18px;
   border-radius: 12px;
   white-space: nowrap;
   border: 1px solid var(--border);
@@ -445,24 +351,23 @@ button {
 }
 
 .ll-icon-link:hover {
-  border-color: var(--border-strong) !important;
-  color: var(--fg) !important;
+  border-color: var(--border-strong);
+  color: var(--fg);
   transform: translateY(-2px);
   box-shadow: 0 10px 24px -10px rgba(0, 0, 0, .5);
 }
 
-.ll-icon-link[data-accent="true"],
-.ll-icon-link[data-accent="true"]:visited {
-  border-color: rgba(106, 161, 255, 0.33);
+.ll-icon-link[data-accent="true"] {
+  border-color: color-mix(in srgb, var(--iris) 33%, transparent);
   background: var(--iris-soft);
   color: var(--iris);
 }
 
 .ll-icon-link[data-accent="true"]:hover {
-  color: var(--iris) !important;
-  border-color: rgba(106, 161, 255, 0.6) !important;
-  background: rgba(106, 161, 255, 0.13) !important;
-  box-shadow: 0 10px 24px -8px rgba(106, 161, 255, 0.4);
+  color: var(--iris);
+  border-color: color-mix(in srgb, var(--iris) 60%, transparent);
+  background: color-mix(in srgb, var(--iris) 13%, transparent);
+  box-shadow: 0 10px 24px -8px color-mix(in srgb, var(--iris) 40%, transparent);
 }
 
 /* ── HEADER ─────────────────────────────────────────────── */
@@ -470,16 +375,17 @@ button {
   position: sticky;
   top: 0;
   z-index: 50;
+  min-height: 76px; /* reserve the JS-mounted header's height, so the page doesn't jump when it appears */
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  background: rgba(13, 15, 24, 0.7);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
   border-bottom: 1px solid var(--border);
 }
 
 .ll-header-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 16px 56px;
+  padding: 16px var(--gutter);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -546,7 +452,7 @@ button {
 
 .ll-mobile-link {
   display: block;
-  padding: 13px 24px;
+  padding: 13px var(--gutter);
   min-height: 44px;
   color: var(--fg-dim);
   text-decoration: none;
@@ -563,8 +469,7 @@ button {
   gap: 2px;
 }
 
-.ll-nav-link,
-.ll-nav-link:visited {
+.ll-nav-link {
   position: relative;
   padding: 8px 14px;
   border-radius: 8px;
@@ -589,8 +494,7 @@ button {
   transition: transform .3s cubic-bezier(.22, .7, .3, 1), opacity .3s;
 }
 
-.ll-nav-link.is-active,
-.ll-nav-link.is-active:visited {
+.ll-nav-link.is-active {
   color: var(--fg);
 }
 
@@ -623,7 +527,7 @@ button {
 .ll-footer-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 40px 56px 48px;
+  padding: 40px var(--gutter) 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -655,15 +559,9 @@ button {
 .ll-section {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 80px 56px 48px;
+  padding: 80px var(--gutter) 48px;
   position: relative;
   z-index: 2;
-}
-
-.ll-section--news,
-.ll-section--pubs,
-.ll-section--contact {
-  padding: 64px 56px;
 }
 
 .ll-section-head {
@@ -674,6 +572,11 @@ button {
   margin-bottom: 40px;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
+}
+
+.ll-section-actions {
+  display: flex;
+  gap: 8px;
 }
 
 .ll-section-head-l {
@@ -713,14 +616,6 @@ button {
 }
 
 /* ── HERO ───────────────────────────────────────────────── */
-.ll-hero {
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 80px 56px 48px;
-  position: relative;
-  z-index: 2;
-}
-
 /* Status pill eyebrow */
 .ll-eyebrow {
   display: inline-flex;
@@ -732,7 +627,7 @@ button {
   color: var(--iris);
   margin-bottom: 36px;
   padding: 7px 14px;
-  border: 1px solid rgba(106, 161, 255, 0.2);
+  border: 1px solid color-mix(in srgb, var(--iris) 20%, transparent);
   border-radius: 99px;
   background: var(--iris-soft);
   text-transform: uppercase;
@@ -753,8 +648,8 @@ button {
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 0 4px var(--bg),
-              0 0 0 5px rgba(106, 161, 255, 0.4),
-              0 20px 40px -10px rgba(106, 161, 255, 0.2);
+              0 0 0 5px color-mix(in srgb, var(--iris) 40%, transparent),
+              0 20px 40px -10px color-mix(in srgb, var(--iris) 20%, transparent);
 }
 
 .ll-avatar img {
@@ -779,7 +674,6 @@ button {
   font-size: clamp(40px, 11vw, 96px);
   line-height: 0.92;
   letter-spacing: -0.045em;
-  margin: 0;
   color: var(--fg);
   flex: 1;
   min-width: 0;
@@ -798,12 +692,13 @@ button {
   letter-spacing: 0.02em;
 }
 
-/* Icon nav strip — equal-width, single line */
+/* Hero action buttons (CV / Scholar / Email); min-height reserves the JS-mounted row */
 .ll-icon-strip {
-  display: grid;
-  grid-template-columns: repeat(7,1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 56px;
+  min-height: 47px;
 }
 
 /* ── STREAMING BIO PANEL ─────────────────────────────────── */
@@ -814,6 +709,13 @@ button {
   overflow: hidden;
   box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .6),
               0 0 0 1px rgba(255, 255, 255, .02) inset;
+}
+
+/* Until the bio mounts, the empty panel holds roughly its final height so the sections
+   below don't jump. Only matters unbuilt (local preview): deployed pages ship the bio markup
+   prerendered by build.mjs. Approximate (depends on bio length and width). */
+.ll-bio:empty {
+  min-height: 321px;
 }
 
 /* Toolbar bar */
@@ -836,7 +738,7 @@ button {
   width: 10px;
   height: 10px;
   border-radius: 99px;
-  background: #3b4252;
+  background: var(--border-strong);
   display: inline-block;
 }
 
@@ -870,7 +772,7 @@ button {
   color: var(--iris);
   padding: 3px 10px;
   border-radius: 99px;
-  border: 1px solid rgba(106, 161, 255, 0.2);
+  border: 1px solid color-mix(in srgb, var(--iris) 20%, transparent);
   background: var(--iris-soft);
 }
 
@@ -890,18 +792,26 @@ button {
   min-height: 260px;
 }
 
-/* Streaming text area */
+/* Streaming text area. The full bio sits invisibly under the animated layer: it
+   reserves the final height (no layout shift) and is what screen readers read. */
 .ll-bio-text {
   padding: 24px 28px;
   border-right: 1px solid var(--border);
-}
-
-.ll-bio-text-stream {
+  display: grid;
   font-size: 16px;
   line-height: 1.7;
   color: var(--fg);
-  font-family: var(--font-body);
-  font-weight: 400;
+}
+
+.ll-bio-text > p {
+  grid-area: 1 / 1;
+  margin: 0;
+}
+
+@media (scripting: enabled) {
+  .ll-bio-full {
+    opacity: 0;
+  }
 }
 
 /* Blinking caret */
@@ -911,6 +821,7 @@ button {
   height: 18px;
   vertical-align: -3px;
   margin-left: 2px;
+  margin-right: -11px; /* zero net width, so the stream wraps exactly like the hidden full bio */
   background: var(--iris);
   border-radius: 1px;
   animation: blink 1s infinite step-end;
@@ -946,10 +857,6 @@ button {
   font-weight: 600;
 }
 
-.ll-bio-logit-tok.top {
-  color: var(--iris);
-}
-
 /* Progress bar track */
 .ll-bio-logit-bar {
   flex: 1;
@@ -963,13 +870,13 @@ button {
 .ll-bio-logit-fill {
   height: 100%;
   border-radius: 99px;
-  background: linear-gradient(90deg, rgba(106, 161, 255, 0.6), rgba(237, 140, 112, 0.33));
+  background: linear-gradient(90deg, color-mix(in srgb, var(--iris) 60%, transparent), color-mix(in srgb, var(--accent) 33%, transparent));
   transition: width .14s ease-out;
 }
 
 .ll-bio-logit-fill.top {
-  background: linear-gradient(90deg, var(--iris), rgba(106, 161, 255, 0.8));
-  box-shadow: 0 0 8px rgba(106, 161, 255, 0.33);
+  background: linear-gradient(90deg, var(--iris), color-mix(in srgb, var(--iris) 80%, transparent));
+  box-shadow: 0 0 8px color-mix(in srgb, var(--iris) 33%, transparent);
 }
 
 /* Probability label */
@@ -978,14 +885,6 @@ button {
   text-align: right;
   color: var(--muted-dim);
   font-size: 14px;
-}
-
-/* Token count badge */
-.ll-bio-count {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--muted);
-  letter-spacing: 0.04em;
 }
 
 /* ── NEWS ───────────────────────────────────────────────── */
@@ -1007,7 +906,7 @@ button {
 }
 
 .ll-news-row:hover {
-  background: rgba(255, 255, 255, .015);
+  background: color-mix(in srgb, var(--fg) 3%, transparent);
 }
 
 /* All rows except the first get a top border */
@@ -1021,7 +920,7 @@ button {
   height: 36px;
   border-radius: 10px;
   background: var(--iris-soft);
-  border: 1px solid rgba(106, 161, 255, 0.2);
+  border: 1px solid color-mix(in srgb, var(--iris) 20%, transparent);
   color: var(--iris);
   display: flex;
   align-items: center;
@@ -1042,6 +941,10 @@ button {
   font-size: 16px;
   line-height: 1.5;
   color: var(--fg-dim);
+}
+
+.ll-news-body a {
+  color: var(--iris);
 }
 
 /* ── PUBLICATIONS ───────────────────────────────────────── */
@@ -1073,6 +976,15 @@ button {
   border-color: var(--border-strong);
 }
 
+/* "12 of 36 publications" */
+.ll-pub-total {
+  margin: 0 0 0 auto;
+  align-self: center;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--muted);
+}
+
 /* Filter chips (publication topics, news categories) */
 .ll-filter-chips {
   display: flex;
@@ -1098,8 +1010,8 @@ button {
   color: var(--fg);
 }
 
-.ll-filter-chip.is-active {
-  border-color: rgba(106, 161, 255, 0.5);
+.ll-filter-chip[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--iris) 50%, transparent);
   background: var(--iris-soft);
   color: var(--iris);
 }
@@ -1154,10 +1066,12 @@ button {
   top: 0;
   left: 0;
   height: 3px;
-  width: 0;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left;
   background: linear-gradient(90deg, var(--iris), var(--accent));
   z-index: 100;
-  transition: width .1s ease-out;
+  transition: transform .1s ease-out;
 }
 
 .ll-top {
@@ -1202,7 +1116,7 @@ button {
   .ll-section-head { border-color: #ccc; }
   .ll-pub, .ll-pub-group, .ll-teach-row { break-inside: avoid; }
   /* Expand abstracts so the printed list is self-contained */
-  .ll-pub-abstract { grid-template-rows: 1fr !important; opacity: 1 !important; }
+  .ll-pub-abstract { grid-template-rows: 1fr !important; opacity: 1 !important; visibility: visible !important; }
   a { color: #000; text-decoration: underline; }
 }
 
@@ -1252,7 +1166,6 @@ button {
   border-radius: 12px;
   padding: 20px 24px;
   background: var(--surface);
-  cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: border-color .18s, background .18s, transform .18s;
@@ -1308,24 +1221,26 @@ button {
   text-transform: uppercase;
   padding: 4px 10px;
   border-radius: 99px;
-  border: 1px solid rgba(237, 140, 112, 0.25);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
   color: var(--accent);
   background: var(--accent-soft);
   flex-shrink: 0;
 }
 
-/* Abstract — expands on hover via CSS grid trick */
+/* Abstract — expands when toggled (.show-abstract) via CSS grid trick */
 .ll-pub-abstract {
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows .35s cubic-bezier(.22, .7, .3, 1),
-              opacity .3s;
+              opacity .3s, visibility .35s;
   opacity: 0;
+  visibility: hidden;
 }
 
-.ll-pub:hover .ll-pub-abstract {
+.ll-pub.show-abstract .ll-pub-abstract {
   grid-template-rows: 1fr;
   opacity: 1;
+  visibility: visible;
 }
 
 .ll-pub-abstract-inner {
@@ -1334,25 +1249,25 @@ button {
 }
 
 .ll-pub-abstract-inner p {
-  margin: 2px 0 12px;
+  margin: 12px 0 0;
   font-size: 15px;
   line-height: 1.55;
   color: var(--fg-dim);
   max-width: 720px;
 }
 
-/* Meta row */
-.ll-pub-meta {
-  display: flex;
-  gap: 14px;
-  align-items: baseline;
+.ll-pub-authors {
   font-size: 15px;
   color: var(--muted);
-  flex-wrap: wrap;
+  margin-bottom: 8px;
 }
 
-.ll-sep {
-  color: var(--border-strong);
+/* Venue (left) + action links (right) */
+.ll-pub-meta {
+  display: flex;
+  gap: 8px 14px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .ll-pub-venue {
@@ -1364,27 +1279,62 @@ button {
 .ll-pub-links {
   margin-left: auto;
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 6px;
   font-family: var(--font-mono);
   font-size: 14px;
 }
 
-/* BibTeX pre block */
+/* Links and toggles as pills, so they read as clickable */
+.ll-pub-links .ll-link,
+.ll-bibtex-copy {
+  padding: 3px 10px;
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  background: none;
+  color: var(--fg-dim);
+  font: inherit;
+  cursor: pointer;
+  transition: color .15s, border-color .15s;
+}
+
+.ll-pub-links .ll-link:hover,
+.ll-pub-links [aria-expanded="true"],
+.ll-bibtex-copy:hover {
+  color: var(--iris);
+  border-color: color-mix(in srgb, var(--iris) 50%, transparent);
+}
+
+/* BibTeX block (shown when the card has .show-bibtex) */
 .ll-bibtex {
+  display: none;
+  position: relative;
   margin-top: 12px;
-  padding: 14px 16px;
   border-radius: 8px;
   background: var(--bg);
   border: 1px solid var(--border);
+}
+
+.ll-pub.show-bibtex .ll-bibtex {
+  display: block;
+}
+
+.ll-bibtex pre {
+  margin: 0;
+  padding: 14px 16px;
   font-family: var(--font-mono);
   font-size: 14px;
   color: var(--fg-dim);
   overflow-x: auto;
-  white-space: pre;
 }
 
-.ll-bibtex[hidden] {
-  display: none;
+.ll-bibtex-copy {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 13px;
 }
 
 /* Empty state */
@@ -1403,6 +1353,11 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+}
+
+/* Projects: 2-up (4 cards fill two rows instead of leaving an orphan) */
+.ll-project-grid {
+  grid-template-columns: repeat(2, 1fr);
 }
 
 /* Research card */
@@ -1441,7 +1396,7 @@ button {
   justify-content: center;
   background: var(--iris-soft);
   color: var(--iris);
-  border: 1px solid rgba(106, 161, 255, 0.2);
+  border: 1px solid color-mix(in srgb, var(--iris) 20%, transparent);
 }
 
 .ll-research-num {
@@ -1508,6 +1463,19 @@ button {
   flex-wrap: wrap;
 }
 
+/* Intro paragraph under a page title */
+.ll-intro {
+  color: var(--muted);
+  max-width: 680px;
+  margin: 0 0 36px;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.ll-intro strong {
+  color: var(--fg);
+}
+
 /* ── TEACHING ───────────────────────────────────────────── */
 .ll-teach-group {
   margin-bottom: 36px;
@@ -1535,7 +1503,7 @@ button {
   align-items: baseline;
   gap: 14px;
   padding: 10px 0;
-  border-bottom: 1px solid rgba(39, 43, 62, 0.5);
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
   font-size: 15px;
 }
 
@@ -1550,17 +1518,19 @@ button {
   border: 1px solid var(--border);
   color: var(--muted);
   flex-shrink: 0;
+  min-width: 3em; /* T and TA badges share a width, so course titles line up */
+  text-align: center;
 }
 
 .ll-teach-role[data-role="T"] {
   color: var(--iris);
-  border-color: rgba(106, 161, 255, 0.3);
+  border-color: color-mix(in srgb, var(--iris) 30%, transparent);
   background: var(--iris-soft);
 }
 
 .ll-teach-role[data-role="TA"] {
   color: var(--accent);
-  border-color: rgba(237, 140, 112, 0.3);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
   background: var(--accent-soft);
 }
 
@@ -1572,7 +1542,7 @@ button {
 .ll-teach-lvl {
   font-family: var(--font-mono);
   font-size: 14px;
-  color: var(--muted-dim);
+  color: var(--muted);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   flex-shrink: 0;
@@ -1580,7 +1550,7 @@ button {
 
 /* ── CONTACT ────────────────────────────────────────────── */
 .ll-contact {
-  background: linear-gradient(135deg, var(--surface), var(--bg2) 60%, rgba(237, 140, 112, 0.067));
+  background: linear-gradient(135deg, var(--surface), var(--bg2) 60%, color-mix(in srgb, var(--accent) 6.7%, transparent));
   border: 1px solid var(--border);
   border-radius: 18px;
   padding: 48px;
@@ -1592,6 +1562,30 @@ button {
   overflow: hidden;
 }
 
+/* Contact content sits above the glow */
+.ll-contact > :not(.ll-contact-glow) {
+  position: relative;
+}
+
+.ll-contact-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border-radius: 99px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.ll-contact-cta::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--iris);
+}
+
 /* Accent glow blob in contact panel */
 .ll-contact-glow {
   position: absolute;
@@ -1601,7 +1595,6 @@ button {
   height: 380px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(237, 140, 112, 0.2), transparent 60%);
-  filter: blur(40px);
   pointer-events: none;
 }
 
@@ -1634,8 +1627,8 @@ button {
 .ll-error {
   padding: 24px;
   border-radius: 10px;
-  border: 1px solid rgba(237, 140, 112, 0.3);
-  background: rgba(237, 140, 112, 0.08);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
   color: var(--accent);
   font-family: var(--font-mono);
   font-size: 15px;
@@ -1644,9 +1637,17 @@ button {
 
 /* ── RESPONSIVE — max-width 860px ───────────────────────── */
 @media (max-width: 860px) {
+  :root {
+    --gutter: 24px;
+  }
+
   /* Header */
+  .ll-header {
+    min-height: 73px;
+  }
+
   .ll-header-inner {
-    padding: 14px 24px;
+    padding-block: 14px;
   }
 
   .ll-nav {
@@ -1683,16 +1684,9 @@ button {
     border-top: 1px solid var(--border);
   }
 
-  /* Hero */
-  .ll-hero,
+  /* Sections */
   .ll-section {
-    padding: 48px 24px 32px;
-  }
-
-  .ll-section--news,
-  .ll-section--pubs,
-  .ll-section--contact {
-    padding: 48px 24px;
+    padding-block: 48px 32px;
   }
 
   .ll-hero-name-row {
@@ -1701,11 +1695,11 @@ button {
     gap: 16px;
   }
 
-  .ll-icon-strip {
-    grid-template-columns: repeat(4, 1fr);
+  /* Bio panel */
+  .ll-bio:empty {
+    min-height: 550px;
   }
 
-  /* Bio panel */
   .ll-bio-grid {
     grid-template-columns: 1fr;
   }
@@ -1762,13 +1756,13 @@ button {
   /* Contact */
   .ll-contact {
     grid-template-columns: 1fr;
-    padding: 32px 24px;
+    padding: 32px var(--gutter);
     gap: 32px;
   }
 
   /* Footer */
   .ll-footer-inner {
-    padding: 32px 24px 40px;
+    padding-block: 32px 40px;
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
@@ -1784,15 +1778,14 @@ button {
 
 /* ── SMALL PHONES ────────────────────────────────────────── */
 @media (max-width: 480px) {
-  .ll-header-inner { padding: 12px 18px; }
-  .ll-hero, .ll-section { padding: 40px 18px 28px; }
-  .ll-section--news, .ll-section--pubs, .ll-section--contact { padding: 40px 18px; }
-  .ll-icon-strip { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .ll-icon-link { padding: 11px 12px; }
+  .ll-header { min-height: 69px; }
+  .ll-header-cta { display: none; } /* it's in the mobile menu; keeps the header one line tall, so the reserved height holds */
+  :root { --gutter: 18px; }
+  .ll-header-inner { padding-block: 12px; }
+  .ll-section { padding-block: 40px 28px; }
+  .ll-bio:empty { min-height: 650px; }
   .ll-bio-toolbar { flex-wrap: wrap; gap: 8px; }
   .ll-bio-text, .ll-bio-logits { padding: 18px; }
-  .ll-contact { padding: 28px 18px; }
-  .ll-mobile-link { padding: 13px 18px; }
   /* Long venues / author strings shouldn't force horizontal scroll */
   .ll-pub-meta, .ll-pub-venue { overflow-wrap: anywhere; }
 }

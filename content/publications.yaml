@@ -30,7 +30,7 @@
   tag: "LLM Agents & Personas"
   title: "Political Persuasion and Endorsement in Large Language Models"
   authors: "Antelmi, Alessia and Galdeman, Alessia and La Cava, Lucio and Pera, Arianna and Da San Martino, Giovanni"
-  venue: "arxiv preprint arXiv:2606.05961"
+  venue: "arXiv preprint arXiv:2606.05961"
   year: 2026
   selected: false
   arxiv: "https://arxiv.org/abs/2606.05961"
@@ -247,6 +247,7 @@
   title: "When Correlation Clustering Meets Fairness Constraints"
   authors: "Gullo, Francesco and La Cava, Lucio and Mandaglio, Domenico and Tagarelli, Andrea"
   venue: "Discovery Science"
+  bibtype: inproceedings
   year: 2022
   doi: "https://doi.org/10.1007/978-3-031-18840-4_22"
 

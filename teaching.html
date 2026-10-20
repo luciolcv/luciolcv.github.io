@@ -6,10 +6,19 @@
 <title>Teaching — Lucio La Cava</title>
 <meta name="description" content="Teaching activities of Lucio La Cava at the University of Calabria and beyond — courses on data mining, algorithms, and large language models.">
 <link rel="canonical" href="https://luciolacava.me/teaching.html">
+<meta name="theme-color" content="#0d0f18">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Teaching — Lucio La Cava">
+<meta property="og:description" content="Teaching activities of Lucio La Cava at the University of Calabria and beyond — courses on data mining, algorithms, and large language models.">
+<meta property="og:url" content="https://luciolacava.me/teaching.html">
+<meta property="og:image" content="https://luciolacava.me/assets/img/og.jpg">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨🏻‍💻</text></svg>">
 <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="preconnect" href="https://cloud.umami.is">
-<link rel="preload" href="assets/fonts/space-grotesk-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="content/profile.yaml" as="fetch" crossorigin>
+<link rel="preload" href="content/teaching.yaml" as="fetch" crossorigin>
 <link rel="stylesheet" href="css/site.css">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="3e6ec900-2332-4a89-b7db-e7fb2f5328d5"></script>
 <script defer src="js/vendor/js-yaml.min.js"></script>
@@ -24,14 +33,14 @@
         <div class="ll-section-head-l">
           <div>
             <div class="ll-section-eyebrow">Courses</div>
-            <div class="ll-section-title">Teaching <span class="ll-accent">history.</span></div>
+            <h1 class="ll-section-title">Teaching <span class="ll-accent">history.</span></h1>
           </div>
         </div>
-        <a class="ll-link" href="index.html" style="color:var(--fg-dim)">← Home</a>
+        <a class="ll-link ll-dim" href="index.html">← Home</a>
       </div>
-      <p style="color:var(--muted);max-width:680px;margin:0 0 36px;line-height:1.6;font-size:15px">
-        I teach <strong style="color:var(--fg)">(T)</strong> or assist
-        <strong style="color:var(--fg)">(TA)</strong> in the following courses:
+      <p class="ll-intro">
+        I teach <strong>(T)</strong> or assist
+        <strong>(TA)</strong> in the following courses:
       </p>
       <div id="teaching-container"></div>
     </section>
@@ -39,9 +48,7 @@
 
   <footer id="site-footer" class="ll-footer"></footer>
 
-  <script src="js/data.js"></script>
   <script src="js/components.js"></script>
-  <script src="js/streaming-bio.js"></script>
   <script src="js/pages.js"></script>
 </body>
 </html>

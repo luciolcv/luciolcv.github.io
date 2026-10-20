@@ -6,10 +6,19 @@
 <title>Publications — Lucio La Cava</title>
 <meta name="description" content="Publications by Lucio La Cava on machine-generated text detection, LLM interpretability, representation engineering, argument mining, and computational social science.">
 <link rel="canonical" href="https://luciolacava.me/publications.html">
+<meta name="theme-color" content="#0d0f18">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Publications — Lucio La Cava">
+<meta property="og:description" content="Publications by Lucio La Cava on machine-generated text detection, LLM interpretability, representation engineering, argument mining, and computational social science.">
+<meta property="og:url" content="https://luciolacava.me/publications.html">
+<meta property="og:image" content="https://luciolacava.me/assets/img/og.jpg">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨🏻‍💻</text></svg>">
 <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <link rel="preconnect" href="https://cloud.umami.is">
-<link rel="preload" href="assets/fonts/space-grotesk-500-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="content/profile.yaml" as="fetch" crossorigin>
+<link rel="preload" href="content/publications.yaml" as="fetch" crossorigin>
 <link rel="stylesheet" href="css/site.css">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="3e6ec900-2332-4a89-b7db-e7fb2f5328d5"></script>
 <script defer src="js/vendor/js-yaml.min.js"></script>
@@ -24,14 +33,15 @@
         <div class="ll-section-head-l">
           <div>
             <div class="ll-section-eyebrow">Recent work</div>
-            <div class="ll-section-title">All <span class="ll-accent">publications.</span></div>
+            <h1 class="ll-section-title">All <span class="ll-accent">publications.</span></h1>
           </div>
         </div>
-        <a class="ll-link" href="index.html" style="color:var(--fg-dim)">← Home</a>
+        <a class="ll-link ll-dim" href="index.html">← Home</a>
       </div>
       <div class="ll-pub-controls">
-        <input id="pub-search" class="ll-input" type="search" placeholder="Search title, author, venue…">
-        <select id="pub-year-filter" class="ll-input"><option value="all">All years</option></select>
+        <input id="pub-search" class="ll-input" type="search" placeholder="Search title, author, venue…" aria-label="Search publications">
+        <select id="pub-year-filter" class="ll-input" aria-label="Filter by year"><option value="all">All years</option></select>
+        <p id="pub-total" class="ll-pub-total" aria-live="polite"></p>
       </div>
       <div id="pub-topics" class="ll-filter-chips"></div>
       <div id="publications-container"></div>
@@ -40,9 +50,7 @@
 
   <footer id="site-footer" class="ll-footer"></footer>
 
-  <script src="js/data.js"></script>
   <script src="js/components.js"></script>
-  <script src="js/streaming-bio.js"></script>
   <script src="js/pages.js"></script>
 </body>
 </html>
